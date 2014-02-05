@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205065932) do
+ActiveRecord::Schema.define(version: 20140205084407) do
+
+  create_table "adoptions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "animals", force: true do |t|
     t.string   "name"
     t.string   "breed"
     t.decimal  "age",        precision: 2, scale: 0
     t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "animal_id"
+    t.integer  "adoption_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

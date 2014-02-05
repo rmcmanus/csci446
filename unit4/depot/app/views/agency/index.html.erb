@@ -1,0 +1,23 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Your One Stop Adopt Shop</h1>
+
+<dl>
+	<div class="entry">
+		<%= button_to 'Adopt Me!', nil %>
+		<%= button_to 'Adopt Me!', nil %>
+	</div>
+</dl>
+<% @animals.each do |animal| %>
+	<div class="entry">
+		<%= image_tag(animal.image_url) %>
+		<dl>
+			<dt><b><%= animal.name %></b></dt>
+			<dd>Age: <%= animal.age %></dd>
+			<dd>Breed: <%= animal.breed %></dd>
+			<%= button_to 'Adopt Me!', line_items_path(:animal_id => animal) %>
+		</dl>
+	</div>
+<% end %>

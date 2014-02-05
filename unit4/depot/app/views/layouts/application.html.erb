@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title>Ryan's Option Pet Adoption</title>
+	<%= stylesheet_link_tag "scaffold" %>
+	<%= stylesheet_link_tag "depot", :media => "all" %> <%= javascript_include_tag :defaults %>
+	<%= csrf_meta_tag %>
 </head>
-<body>
 
-<%= yield %>
-
+<body id="store">
+	<div id="banner">
+    	<%= image_tag("logo.gif", :size => "150x50") %>
+    	<%= @page_title || "Ryan's Option Pet Adoption" %>
+	</div>
+	<div id="columns">
+		<div id="side">
+			<a href="http://www....">Home</a><br />
+			<a href="http://www..../adoption">Adoptions</a><br />
+			<a href="http://www..../news">What's New!</a><br />
+			<a href="http://www..../contact">Contact Us!</a><br />
+		</div>
+		<div id="main">
+			<%= yield %>
+   	</div>
+  </div>
 </body>
 </html>

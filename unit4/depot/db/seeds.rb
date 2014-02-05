@@ -18,3 +18,8 @@ Animal.create(:name => "Laurel",
 							:age => 6,
 							:image_url => "/images/cat.jpg")
 # . . .
+Animal.create(:name => "Ferry",
+							:breed => "Ferret",
+							:age => 2,
+							:image_url => "/images/ferret.jpg")
+# . . .

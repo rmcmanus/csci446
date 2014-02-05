@@ -1,0 +1,6 @@
+<h2>Your Adoption Station</h2>
+<ul>
+	<% @adoption.line_items.each do |item| %>
+		<li><%= item.animal.name %></li>
+	<% end %>
+</ul>
