@@ -3,11 +3,17 @@
 one:
   name: MyString
   breed: MyString
-  age: 9.99
+  age: 7
   image_url: MyString
 
 two:
   name: MyString
   breed: MyString
-  age: 9.99
+  age: 7
   image_url: MyString
+
+ruby:
+  name: Ruby
+  breed: Dog
+  age: 3
+  image_url: black_lab.gif
