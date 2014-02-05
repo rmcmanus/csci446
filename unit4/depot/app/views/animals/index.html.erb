@@ -1,33 +1,34 @@
-<h1>Listing animals</h1>
+<div id="product-list">
+  <h1>Listing animals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Breed</th>
-      <th>Age</th>
-      <th>Image url</th>
-      <th></th>
-      <th></th>
-      <th></th>
+  <table>
+  <% @animals.each do |animal| %>
+    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+
+      <td>
+        <%= image_tag(animal.image_url, :class => 'list-image') %>
+      </td>
+
+      <td class="list-description">
+        <dl>
+          <dt><%= animal.name %></dt>
+          <dl>Age: <%= animal.age %></dl>
+          <dl>Breed: <%= animal.breed %></dl>
+        </dl>
+      </td>
+
+      <td class="list-actions">
+        <%= link_to 'Show', animal %><br/>
+        <%= link_to 'Edit', edit_animal_path(animal) %><br/>
+        <%= link_to 'Destroy', animal, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td>
     </tr>
-  </thead>
+  <% end %>
+  </table>
+</div>
 
-  <tbody>
-    <% @animals.each do |animal| %>
-      <tr>
-        <td><%= animal.name %></td>
-        <td><%= animal.breed %></td>
-        <td><%= animal.age %></td>
-        <td><%= animal.image_url %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br />
 
-<br>
-
-<%= link_to 'New Animal', new_animal_path %>
+<%= link_to 'New animal', new_animal_path %>

@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Animal.delete_all
+# . . .
+Animal.create(:name => "Maggie",
+							:breed => "Dog",
+							:age => 10,
+							:image_url => "/images/yellow_lab.jpg")
+# . . .
+Animal.create(:name => "Laurel",
+							:breed => "Cat",
+							:age => 6,
+							:image_url => "/images/cat.jpg")
+# . . .
