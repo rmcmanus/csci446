@@ -1,10 +1,12 @@
 Pets2::Application.routes.draw do
+  get "adoption/index"
   resources :pets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  root 'adoption#index', as: 'adoption'
   # root 'welcome#index'
 
   # Example of regular route:

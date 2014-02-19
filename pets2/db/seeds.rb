@@ -18,9 +18,9 @@ Pet.create!(name: 'Cory',
 		  </p>},
 	habits:
 		%{<p>
-			Sleeps, a lot!
-			Will beg for belly rubs
-			Likes to play fetch
+			Sleeps, a lot!<br>
+			Will beg for belly rubs<br>
+			Likes to play fetch<br>
 			Eats too much if food is left out
 			</p>},
 	image_url: 'cory.jpg')
@@ -35,8 +35,8 @@ Pet.create!(name: 'Tabby',
 		  </p>},
 	habits:
 		%{<p>
-			Sleeps, a lot!
-			Master of her own universe
+			Sleeps, a lot!<br>
+			Master of her own universe<br>
 			Loves to scratch anything, consider a scratching post!
 			</p>},
 	image_url: 'tabby.jpg')
@@ -50,8 +50,8 @@ Pet.create!(name: 'Bella',
 		  </p>},
 	habits:
 		%{<p>
-			Likes to fetch
-			Digs holes when nervous 
+			Likes to fetch<br>
+			Digs holes when nervous<br>
 			Loves children
 			</p>},
 	image_url: 'bella.jpg')
