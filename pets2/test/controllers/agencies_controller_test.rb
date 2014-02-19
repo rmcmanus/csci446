@@ -41,6 +41,7 @@ class AgenciesControllerTest < ActionController::TestCase
 
   test "should destroy agency" do
     assert_difference('Agency.count', -1) do
+      session[:agency_id] = @agency.id
       delete :destroy, id: @agency
     end
 

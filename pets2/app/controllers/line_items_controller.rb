@@ -31,7 +31,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.agency, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.agency}
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
@@ -62,6 +62,10 @@ class LineItemsController < ApplicationController
       format.html { redirect_to line_items_url }
       format.json { head :no_content }
     end
+  end
+
+  def line_item_params
+    params.require(:line_item).permit(:pet_id)
   end
 
   private

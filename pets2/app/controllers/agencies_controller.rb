@@ -1,6 +1,6 @@
 class AgenciesController < ApplicationController
   before_action :set_agency, only: [:show, :edit, :update, :destroy]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /agencies
   # GET /agencies.json
   def index
@@ -54,9 +54,10 @@ class AgenciesController < ApplicationController
   # DELETE /agencies/1
   # DELETE /agencies/1.json
   def destroy
-    @agency.destroy
+    @agency.destroy if @agency.id == session[:agency_id]
+    session[:agency_id] = nil
     respond_to do |format|
-      format.html { redirect_to agencies_url }
+      format.html { redirect_to adoption_url, notice: 'Your cart is currently empty' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,10 @@ class AgenciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
       params[:agency]
+    end
+
+    def invalid_cart
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to adoption_url, notice: 'Invalid cart'
     end
 end
