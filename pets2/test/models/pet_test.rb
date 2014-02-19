@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class PetTest < ActiveSupport::TestCase
+  fixtures :pets
   test "pet attributes must not be empty" do
   	pet = Pet.new
   	assert pet.invalid?
@@ -51,5 +52,16 @@ class PetTest < ActiveSupport::TestCase
   	bad.each do |name|
   		assert new_pet(name).invalid?, "#{name} should not be valid"
   	end
+  end
+
+  test "pet is not valid without a unique name" do
+    pet = Pet.new(name: pets(:doge).name,
+                  breed: 'Dog',
+                  description: 'This is dog',
+                  habits: 'Tends to dog',
+                  image_url: 'dog.jpg')
+
+    assert pet.invalid?
+    assert_equal ["has already been taken"], pet.errors[:name]
   end
 end

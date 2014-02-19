@@ -15,3 +15,11 @@ two:
   description: MyText
   habits: MyText
   image_url: MyString
+
+doge:
+  name: Doge
+  age: 4
+  breed: Doge
+  description: What a cute meme!
+  habits: Driving the sane away from sanity at Mach 12
+  image_url: doge.jpg
