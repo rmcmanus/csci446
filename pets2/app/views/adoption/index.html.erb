@@ -19,6 +19,7 @@
 				<div class="price_line">
 					<span class="age">Age: <%= pet.age %></span> 
 					<%= button_to 'Adopt!', line_items_path(pet_id: pet) %>
+					<%= button_to 'Considering', line_items_path(pet_id: pet) %>
 				</div>
 			</div>
 		<% end %>

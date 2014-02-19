@@ -13,6 +13,10 @@
 	</div>
 	<div id="columns">
 		<div id="side"> 
+			<div id="cart">
+				<%= render @agency %>
+			</div>
+			
 			<ul>
 				<li><%= link_to 'Home', adoption_path %></li>
 				<li><%= link_to 'Your Adoption', agencies_path %></li>

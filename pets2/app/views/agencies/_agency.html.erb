@@ -1,0 +1,7 @@
+<h2>Your Considerations</h2>
+<table>
+	<% @agency.line_items.each do |p| %> 
+		<%= image_tag(p.pet.image_url, :size=>'100x100') %> 
+		<h3><%= p.pet.name %></h3>
+	<% end %>
+</table>

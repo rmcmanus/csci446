@@ -1,4 +1,6 @@
 class AdoptionController < ApplicationController
+	include CurrentAgency
+	before_action :set_agency
   def index
   	@pets = Pet.order(:name)
   end
