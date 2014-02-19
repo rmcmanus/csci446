@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140219012135) do
 
   create_table "pets", force: true do |t|
     t.string   "name"
-    t.integer  "age",         default: 0
+    t.integer  "age"
     t.string   "breed"
     t.text     "description"
     t.text     "habits"
