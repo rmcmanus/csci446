@@ -4,14 +4,18 @@
 
 <h1>Your Adoption Center</h1>
 
-<% @pets.each do |pet| %>
-	<div class="entry">
-		<%= image_tag(pet.image_url) %> 
-		<h3><%= pet.name %></h3>
-		<b><%= sanitize(pet.description) %></b>
-		<%= sanitize(pet.habits) %>
-		<div class="price_line">
-			<span class="age">Age: <%= pet.age %></span> 
-		</div>
-	</div>
+<% cache ['store', Pet.latest] do %>
+	<% @pets.each do |pet| %>
+		<% cache ['entry', pet] do %>
+			<div class="entry">
+				<%= image_tag(pet.image_url) %> 
+				<h3><%= pet.name %></h3>
+				<b><%= sanitize(pet.description) %></b>
+				<%= sanitize(pet.habits) %>
+				<div class="price_line">
+					<span class="age">Age: <%= pet.age %></span> 
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 <% end %>
