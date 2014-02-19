@@ -1,0 +1,10 @@
+<h2>Your Adoption</h2> 
+<ul>
+	<% @adopted = @agency.line_items.last %> 
+	<%= image_tag(@adopted.pet.image_url, :size=>'100x100') %> 
+	<h3><%= @adopted.pet.name %></h3>
+	<p> As you decide to whether or not to adopt <%= @adopted.pet.name %>, consider what you can offer
+		to the animal. We would ask that you look to provide a loving environment, a safe and warm
+		place to stay, plenty of food and attention. If you don't think you can provide that, don't worry!
+		We'll find you another pet that you can take home. If you think that fits you, then congratulations!</p>
+</ul>
