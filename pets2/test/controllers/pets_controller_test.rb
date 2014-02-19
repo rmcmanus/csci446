@@ -3,6 +3,14 @@ require 'test_helper'
 class PetsControllerTest < ActionController::TestCase
   setup do
     @pet = pets(:one)
+    @update = {
+      name:         'Lorem Ipsum',
+      breed:        'Wibble',
+      age:           5,
+      description:  'Wibbles are fun!',
+      habits:       'Wibbles bite!',
+      image_url:     'lorem.jpg'
+    }
   end
 
   test "should get index" do
@@ -18,7 +26,7 @@ class PetsControllerTest < ActionController::TestCase
 
   test "should create pet" do
     assert_difference('Pet.count') do
-      post :create, pet: { age: @pet.age, breed: @pet.breed, description: @pet.description, habits: @pet.habits, image_url: @pet.image_url, name: @pet.name }
+      post :create, pet: @update
     end
 
     assert_redirected_to pet_path(assigns(:pet))
@@ -35,7 +43,7 @@ class PetsControllerTest < ActionController::TestCase
   end
 
   test "should update pet" do
-    patch :update, id: @pet, pet: { age: @pet.age, breed: @pet.breed, description: @pet.description, habits: @pet.habits, image_url: @pet.image_url, name: @pet.name }
+    patch :update, id: @pet, pet: @update
     assert_redirected_to pet_path(assigns(:pet))
   end
 
