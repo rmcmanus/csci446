@@ -1,0 +1,25 @@
+<form action="form" method="get">
+	<input type="submit" value=Sort!></input>
+</form>
+
+<table>
+	<tr>
+	    <th>Rank</td>
+	   	<th>Title</td>
+	    <th>Author</td>
+	    <th>Language</td>
+	    <th>Year</td>
+	    <th>Copies</td>
+	</tr>
+
+	<% @list_of_books.each do |book| %>
+		<tr>
+	    	<td><%=book.rank%></td>
+	    	<td><%=book.title%></td>
+	    	<td><%=book.author%></td>
+	    	<td><%=book.language%></td>
+	    	<td><%=book.year%></td>
+	    	<td><%=book.copies%></td>
+	  	</tr>
+	<% end %>
+</table>
