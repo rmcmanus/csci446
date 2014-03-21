@@ -12,7 +12,7 @@ get '/list' do
 end
 
 post '/list' do
-  @books = Book.all
+  @books = Book.all(:order => [params[:fields].to_sym.asc])
   erb :list
 end
 
